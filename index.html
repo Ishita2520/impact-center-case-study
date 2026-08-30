@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing for Real Operations — IMPACT Center Volunteer Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Toyota Mobility Foundation Capstone · Indiana University MS HCI · Spring 2026</span>
+    <h1>Designing for <em>Real Operations</em>: A Volunteer Management System for the IMPACT Center Food Pantry</h1>
+    <p class="sub">A real-time coordination system that replaced one Operations Manager's memory with a shared digital task board, deployed live to 189 volunteers at a food pantry serving 400+ families a month.</p>
+    <div class="role">
+      <b>My role —</b> UX researcher and designer on a three-person team. I facilitated participant sessions in the usability workshop, contributed to the IA and Figma design system, and worked in Claude Code to help ship the interface to production.
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><b>400+</b><span>families served monthly</span></div>
+    <div class="stat"><b>189</b><span>volunteers, one live session</span></div>
+    <div class="stat"><b>100%</b><span>task completion in testing</span></div>
+    <div class="stat"><b>$0/mo</b><span>ongoing cost to the pantry</span></div>
+  </div>
+</div>
+
+<section class="content">
+  <div class="wrap">
+    <span class="eyebrow">The problem</span>
+    <div class="divider"></div>
+    <h2>One person held every piece of the operation</h2>
+    <p>Every distribution session, volunteers showed up with no advance notice, working through donations nobody could plan for until the boxes were opened. All of that knowledge lived in one Operations Manager's head.</p>
+    <div class="facts">
+      <span class="fact">2–30 volunteers, no advance notice</span>
+      <span class="fact">Donation contents unknown until opened</span>
+      <span class="fact">1 person coordinating everything</span>
+    </div>
+  </div>
+</section>
+
+<section class="content band-alt">
+  <div class="wrap">
+    <span class="eyebrow">Field research</span>
+    <div class="divider"></div>
+    <h2>Getting it from real people, not assumptions</h2>
+    <p>Partway in, we discovered a prior semester's research had been fabricated and restarted from scratch: stakeholder interviews, field observation, a live dot-survey experiment, and a review of 20+ sources on pantry operations.</p>
+
+    <div class="photo-grid">
+      <figure class="photo">
+        <div class="photo-frame">
+          <img src="images/dot-survey.jpg" alt="Dot survey pilot posted on the wall for volunteers">
+        </div>
+      </figure>
+
+      <figure class="photo">
+        <div class="photo-frame">
+          <img src="images/operations-manager-interview.jpg" alt="Stakeholder interview with the Operations Manager">
+        </div>
+      </figure>
+
+      <figure class="photo">
+        <div class="photo-frame">
+          <img src="images/warehouse-walkthrough.jpg" alt="Field observation and warehouse walkthrough">
+        </div>
+      </figure>
+
+      <figure class="photo">
+        <div class="photo-frame">
+          <img src="images/workshop-conclusion-meeting.jpg" alt="Workshop conclusion meeting with volunteers and staff">
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+    <span class="eyebrow">What we found</span>
+    <div class="divider"></div>
+    <h2>Four structural problems, not one bad system</h2>
+    <ul class="plain">
+      <li>All knowledge lived in one person's head, so every question routed through him.</li>
+      <li>Unpredictable headcount broke any task list made the night before.</li>
+      <li>No one could see what was already claimed, so tasks got duplicated or abandoned.</li>
+      <li>New volunteers had no way to get oriented without direct instruction.</li>
+    </ul>
+    <div class="callout">
+      A nearby pantry's existing software showed <b>&minus;4,671 items</b> in inventory &mdash; proof that data entry as a separate step from the physical work eventually falls out of sync with reality. That became a hard design constraint.
+    </div>
+  </div>
+</section>
+
+<section class="content band-alt">
+  <div class="wrap">
+    <span class="eyebrow">The decision</span>
+    <div class="divider"></div>
+    <h2>Coordination over inventory</h2>
+    <p>Two directions were on the table: live inventory tracking, or volunteer coordination. The Operations Manager's most acute problem was coordination, so that's what we built &mdash; accessed by QR code and volunteers' own phones instead of $1,000&ndash;$2,000 in dedicated tablets.</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+    <span class="eyebrow">Designing for the room</span>
+    <div class="divider"></div>
+    <h2>Not just the screen</h2>
+    <p>Volunteers ranged from 60 to 80 years old with wide variation in tech comfort: 60&times;60px touch targets, one action per screen, no more than two taps to anything.</p>
+
+    <figure class="inline-figure small">
+      <img src="images/role-hierarchy.png" alt="Three-tier access model: Operations Manager, Experienced Volunteers, New Volunteers">
+      <figcaption>Knowledge used to flow down through one person and questions flowed back up through him. The three-tier model gives each role exactly the access it needs.</figcaption>
+    </figure>
+
+    <blockquote>
+      "I typed my phone number in Google and the first four things were my family. That's terrifying."
+      <cite>Operations Manager · March 25, 2026</cite>
+    </blockquote>
+    <p>That's why experienced volunteers log in with the last four digits of their phone number instead of the full thing.</p>
+  </div>
+</section>
+
+<section class="demo-section" id="demo">
+  <div class="wrap">
+    <span class="eyebrow">The design in motion</span>
+    <h2>The four-state task system</h2>
+    <p>We started with three states. The workshop surfaced a fourth: tasks abandoned mid-way, which the old paper system had no way to flag.</p>
+    <div class="board" id="board"></div>
+    <div class="demo-legend">
+      <span><span class="dot" style="background:var(--gray)"></span> Available</span>
+      <span><span class="dot" style="background:#5FD9C7"></span> In Progress</span>
+      <span><span class="dot" style="background:var(--red)"></span> Incomplete</span>
+      <span><span class="dot" style="background:var(--green)"></span> Complete</span>
+    </div>
+    <p class="demo-note">Click a card to move it through the states. Incomplete tasks roll over to the next session automatically.</p>
+  </div>
+</section>
+
+<section class="content band-alt">
+  <div class="wrap">
+    <span class="eyebrow">Testing it three ways</span>
+    <div class="divider"></div>
+    <h2>Three methods, three different blind spots covered</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-num">1</div>
+        <div>
+          <span class="tl-meta">March 26 &middot; Cognitive Walkthrough</span>
+          <h3>Step-by-step, before real users touched it</h3>
+          <p>Flagged a tag filter bar volunteers kept tapping by mistake, expecting it to take them somewhere rather than filter the list.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">2</div>
+        <div>
+          <span class="tl-meta">March 23 &middot; Think-Aloud Workshop</span>
+          <h3>10 volunteers, individual sessions first</h3>
+          <p>All three sessions independently flagged that same filter. 100% task completion, zero critical errors.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-num">3</div>
+        <div>
+          <span class="tl-meta">April 15 &middot; Live, Unmonitored Session</span>
+          <h3>No researchers on site. No paper backup.</h3>
+          <p>189 volunteers, a full Wednesday session, and no paper backup &mdash; the Operations Manager's own call, because he trusted it. It held up.</p>
+        </div>
+      </div>
+    </div>
+    <blockquote>
+      "A volunteer does half a job, and 30 others see it crossed out and skip it. The whole rack ends up empty."
+      <cite>Operations Manager Observer · Workshop conclusion meeting</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+    <span class="eyebrow">Beyond the screen</span>
+    <div class="divider"></div>
+    <h2>The building changed too</h2>
+    <p>Within 48 hours of the workshop, the Operations Manager's team had already labeled the warehouse bays and updated the paper board &mdash; on their own, before we discussed the findings.</p>
+  </div>
+</section>
+
+<section class="content band-alt">
+  <div class="wrap">
+    <span class="eyebrow">Where it landed</span>
+    <div class="divider"></div>
+    <h2>Live, in production, handed off</h2>
+    <p>64+ screens across three roles, built on React, Firebase, and Tailwind, deployed on Vercel. Zero ongoing cost. Fully handed off to the church's IT contact.</p>
+
+    <figure class="full-bleed-figure" style="margin-top:26px;">
+      <img src="images/system-overview.png" alt="IMPACT Center Volunteer Management System shown across laptop, tablet, and phone">
+    </figure>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+    <span class="eyebrow">The prototype</span>
+    <div class="divider"></div>
+    <h2>A few screens from the live system</h2>
+    <p>Same design system across two modules &mdash; Pantry and Delivery &mdash; and every role from Operations Manager down to a first-time volunteer.</p>
+
+    <div class="screens">
+      <figure class="screen">
+        <div class="screen-frame">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <img src="images/landing-desktop.png" alt="Landing page with three role buttons">
+        </div>
+        <figcaption><b>Landing page.</b> Same URL for every user &mdash; role determines the experience from here.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="screen-frame">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <img src="images/manager-login-desktop.png" alt="Operations Manager login screen">
+        </div>
+        <figcaption><b>Operations Manager login.</b> Username and password, the only role that needs one.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="screen-frame">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <img src="images/volunteer-login-mobile.png" alt="Experienced Volunteer 4-digit ID login on mobile">
+        </div>
+        <figcaption><b>Volunteer login, on a phone.</b> The 4-digit ID in practice &mdash; last four digits of a phone number, nothing more.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="screen-frame">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <img src="images/pantry-dashboard.png" alt="Operations Manager pantry dashboard">
+        </div>
+        <figcaption><b>Pantry dashboard.</b> Active, in-progress, and completed tasks at a glance, with live volunteer count.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="screen-frame">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <img src="images/task-history.png" alt="Task history log with volunteer attribution">
+        </div>
+        <figcaption><b>Task history.</b> Every completed task logged with volunteer attribution and a timestamp.</figcaption>
+      </figure>
+
+      <figure class="screen">
+        <div class="screen-frame">
+          <div class="chrome"><span></span><span></span><span></span></div>
+          <img src="images/delivery-dashboard.png" alt="Delivery dashboard showing routes and drivers">
+        </div>
+        <figcaption><b>Delivery dashboard.</b> The same claim/complete framework, reused at the route level for driver coordination.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="content band-alt">
+  <div class="wrap">
+    <span class="eyebrow">What I'd still want to test</span>
+    <div class="divider"></div>
+    <h2>Honest limitations</h2>
+    <p>No baseline was measured before deployment, so the 60% interruption-reduction target is still a hypothesis. Inventory tracking is still unbuilt. And it's one pantry &mdash; the structural problems generalize, but the interface decisions were shaped by this specific building and community.</p>
+  </div>
+</section>
+
+<div class="closing">
+  <div class="wrap">
+    <figure class="closing-photo">
+      <img src="images/team-stakeholders.jpg" alt="The team with IMPACT Center stakeholders at handoff">
+    </figure>
+    <h2>From zero to one, all the way through</h2>
+    <p>"From zero to one product. From research to handing off the product. This is a big thing for us." &mdash; Tanishq Sardar, March 25, 2026</p>
+  </div>
+</div>
+
+<footer>IMPACT Center Volunteer Management System &middot; Indiana University MS HCI Capstone &middot; Spring 2026</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
